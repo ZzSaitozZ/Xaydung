@@ -9,23 +9,40 @@ namespace Xaydung
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Resrouce/JS/Scripts/jquery-{version}.js"));
+                        "~/Resources/JS/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Resrouce/JS/Scripts/jquery.validate*"));
+                        "~/Resources/JS/Scripts/jquery.validate*"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Resrouce/JS/Scripts/modernizr-*"));
+                        "~/Resources/JS/Scripts/modernizr-*"));
+
+            bundles.Add(new ScriptBundle("~/bundles/popper").Include(
+                      "~/Resources/JS/Scripts/bootstrap/umd/popper.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Resrouce/JS/Scripts/bootstrap.js",
-                      "~/Resrouce/JS/Scripts/respond.js"));
+                      "~/Resources/JS/Scripts/bootstrap/bootstrap.js",
+                      "~/Resources/JS/Scripts/bootstrap/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Resrouce/CSS/Content/bootstrap.css",
-                      "~/Resrouce/CSS/Content/site.css"));
+                      "~/Resources/CSS/bootstrap/bootstrap.css",
+                      "~/Resources/CSS/bootstrap/site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/Home").Include(
+                      "~/Resources/CSS/Home/Banner.css"));
+
+            bundles.Add(new StyleBundle("~/Content/Icon").Include(
+                      "~/Resources/Icons/css/fontawesome-all.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/select").Include(
+                        "~/Resources/JS/Scripts/Select2/select2.min.js",
+                        "~/Resources/JS/Scripts/Item/BootstrapSelect/bootstrap-select.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/itemfilter").Include(
+                        "~/Resources/JS/Scripts/Item/Itemfilter.js"));
+
         }
     }
 }
