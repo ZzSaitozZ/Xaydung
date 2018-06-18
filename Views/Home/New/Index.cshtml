@@ -1,0 +1,120 @@
+﻿
+@*@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
+}*@
+<script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+           function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="~/Resources/CSS/Index/font-awesome.min.css" rel="stylesheet" />
+<link href="~/Resources/CSS/Index/style.css" rel="stylesheet" />
+<!--fonts-->
+<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+<!--//fonts-->
+<!-- js -->
+<script src="~/Resources/JS/Scripts/index/jquery-2.1.4.min.js"></script>
+<!--light-box-files -->
+<script src="~/Resources/JS/Scripts/index/modernizr.custom.js"></script>
+<script src="~/Resources/JS/Scripts/index/jquery.chocolat.js"></script>
+<link rel="stylesheet" href="css/chocolat.css" type="text/css" media="screen">
+<!--//light-box-files -->
+<script type="text/javascript">
+		$(function() {
+			$('.gallery a').Chocolat();
+		});
+</script>
+<!-- //js -->
+<script src="~/Resources/JS/Scripts/index/responsiveslides.min.js"></script>
+<script>
+				$(function () {
+					$("#slider").responsiveSlides({
+						auto: true,
+						pager: true,
+						nav: true,
+						speed: 1000,
+						namespace: "callbacks",
+						before: function () {
+							$('.events').append("<li>before event fired.</li>");
+						},
+						after: function () {
+							$('.events').append("<li>after event fired.</li>");
+						}
+					});
+				});
+</script>
+
+
+<!-- start-smoth-scrolling -->
+<script src="~/Resources/JS/Scripts/index/move-top.js"></script>
+<script src="~/Resources/JS/Scripts/index/easing.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+<div class="header">
+    <!--Slider-->
+    <div class="slider">
+        <div class="callbacks_container">
+            <ul class="rslides" id="slider">
+                <li>
+                    <div class="slider-img">
+                        <img src="~/Resources/Images/Index/slider1.jpg" class="img-responsive" alt="Real Plot">
+                    </div>
+                    <div class="slider-info">
+                        <span class="italic">Neque porro quisquam </span>
+                        <h4> Integer nec enim venenatis.</h4>
+                        <h3>Lorem ipsum dolor sit amet</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="slider-img">
+                        <img src="~/Resources/Images/Index/slider2.jpg" class="img-responsive" alt="Real Plot">
+                    </div>
+                    <div class="slider-info">
+                        <span class="italic"> Pellentesque posuere</span>
+                        <h4> Nulla ac euismod libero.</h4>
+                        <h3>Quis nostrud exercitation </h3>
+                        <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam molestiae.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="slider-img">
+                        <img src="~/Resources/Images/Index/slider3.jpg" class="img-responsive" alt="Real Plot">
+                    </div>
+                    <div class="slider-info">
+                        <span class="italic">Aenean sagittis convallis</span>
+                        <h4> Integer nec enim venenatis.</h4>
+                        <h3>Cupidatat non proident sunt</h3>
+                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="slider-img">
+                        <img src="~/Resources/Images/Index/slider4.jpg" class="img-responsive" alt="Real Plot">
+                    </div>
+                    <div class="slider-info">
+                        <span class="italic">Pellentesque posuere</span>
+                        <h4> Nulla ac euismod libero.</h4>
+                        <h3>Voluptate velit esse</h3>
+                        <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam molestiae.</p>
+                    </div>
+                </li>
+
+            </ul>
+
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <!--//Slider-->
+</div>
+
