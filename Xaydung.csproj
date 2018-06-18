@@ -149,6 +149,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\XML\HomeText - ENG.Designer.cs" />
+    <Compile Include="Resources\XML\HomeText.Designer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\CSS\bootstrap\bootstrap-grid.css" />
@@ -306,6 +308,10 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\XML\HomeText - ENG.resx" />
+    <EmbeddedResource Include="Resources\XML\HomeText.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

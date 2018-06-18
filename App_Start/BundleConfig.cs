@@ -19,12 +19,10 @@ namespace Xaydung
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Resources/JS/Scripts/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/popper").Include(
-                      "~/Resources/JS/Scripts/bootstrap/umd/popper.js"));
-
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Resources/JS/Scripts/bootstrap/bootstrap.js",
-                      "~/Resources/JS/Scripts/bootstrap/respond.js"));
+                      "~/Resources/JS/Scripts/bootstrap.js",
+                      "~/Resources/JS/Scripts/respond.js",
+                      "~/Resources/JS/Scripts/umd/popper.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Resources/CSS/bootstrap/bootstrap.css",
