@@ -166,13 +166,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\CSS\Home\AHS_styles.css" />
-    <Content Include="Resources\CSS\Home\Banner.css" />
+    <Content Include="Resources\CSS\Home\FixStyle.css" />
     <Content Include="Resources\CSS\Home\Carousel.css" />
     <Content Include="Resources\CSS\Home\Detail_Slider_Style.css" />
-    <Content Include="Resources\CSS\Index\chocolat.css" />
-    <Content Include="Resources\CSS\Index\common.css" />
-    <Content Include="Resources\CSS\Index\font-awesome.min.css" />
-    <Content Include="Resources\CSS\Index\style.css" />
     <Content Include="Resources\Icons\css\fa-brands.css" />
     <Content Include="Resources\Icons\css\fa-brands.min.css" />
     <Content Include="Resources\Icons\css\fa-regular.css" />
@@ -186,12 +182,35 @@
     <Content Include="Resources\Icons\webfonts\fa-brands-400.svg" />
     <Content Include="Resources\Icons\webfonts\fa-regular-400.svg" />
     <Content Include="Resources\Icons\webfonts\fa-solid-900.svg" />
+    <Content Include="Resources\Images\en.png" />
+    <Content Include="Resources\Images\Index\bewater.jpg" />
     <Content Include="Resources\Images\Index\left-arrow.png" />
+    <Content Include="Resources\Images\Index\linhvuc1.jpg" />
+    <Content Include="Resources\Images\Index\linhvuc2.jpg" />
+    <Content Include="Resources\Images\Index\linhvuc3.jpg" />
+    <Content Include="Resources\Images\Index\linhvuc4.jpg" />
+    <Content Include="Resources\Images\Index\linhvuc5.jpg" />
+    <Content Include="Resources\Images\Index\linhvuc6.jpg" />
     <Content Include="Resources\Images\Index\right-arrow.png" />
-    <Content Include="Resources\Images\Index\slider1.jpg" />
-    <Content Include="Resources\Images\Index\slider2.jpg" />
-    <Content Include="Resources\Images\Index\slider3.jpg" />
-    <Content Include="Resources\Images\Index\slider4.jpg" />
+    <Content Include="Resources\Images\Index\Water treatment.jpg" />
+    <Content Include="Resources\Images\Index\water-supply.jpg" />
+    <Content Include="Resources\Images\Index\water.jpeg" />
+    <Content Include="Resources\Images\Index\waterwaste.jpg" />
+    <Content Include="Resources\Images\Index\waterwaste1.jpg" />
+    <Content Include="Resources\Images\logo\dosatron-because-life-is-powered-by-water_0.jpg" />
+    <Content Include="Resources\Images\logo\eversoft.png" />
+    <Content Include="Resources\Images\logo\ide evironment.png" />
+    <Content Include="Resources\Images\logo\Logo-Salmson-Copie.jpg" />
+    <Content Include="Resources\Images\vi.png" />
+    <Content Include="Resources\JS\Index\AddJS.js" />
+    <Content Include="Resources\JS\Index\bootstrap-3.1.1.min.js" />
+    <Content Include="Resources\JS\Index\easing.js" />
+    <Content Include="Resources\JS\Index\jquery-2.1.4.min.js" />
+    <Content Include="Resources\JS\Index\jquery.chocolat.js" />
+    <Content Include="Resources\JS\Index\jquery.hoverdir.js" />
+    <Content Include="Resources\JS\Index\modernizr.custom.js" />
+    <Content Include="Resources\JS\Index\move-top.js" />
+    <Content Include="Resources\JS\Index\responsiveslides.min.js" />
     <Content Include="Resources\JS\Scripts\bootstrap.bundle.js" />
     <Content Include="Resources\JS\Scripts\bootstrap.bundle.min.js" />
     <Content Include="Resources\JS\Scripts\bootstrap.js" />
@@ -258,15 +277,8 @@
     <Content Include="Resources\Icons\webfonts\fa-solid-900.ttf" />
     <Content Include="Resources\Icons\webfonts\fa-solid-900.woff" />
     <Content Include="Resources\Icons\webfonts\fa-solid-900.woff2" />
+    <Content Include="Resources\Images\logo\Thumbs.db" />
     <None Include="Resources\JS\Scripts\jquery-3.3.1.intellisense.js" />
-    <Content Include="Resources\JS\Scripts\index\bootstrap-3.1.1.min.js" />
-    <Content Include="Resources\JS\Scripts\index\easing.js" />
-    <Content Include="Resources\JS\Scripts\index\jquery-2.1.4.min.js" />
-    <Content Include="Resources\JS\Scripts\index\jquery.chocolat.js" />
-    <Content Include="Resources\JS\Scripts\index\jquery.hoverdir.js" />
-    <Content Include="Resources\JS\Scripts\index\modernizr.custom.js" />
-    <Content Include="Resources\JS\Scripts\index\move-top.js" />
-    <Content Include="Resources\JS\Scripts\index\responsiveslides.min.js" />
     <Content Include="Resources\JS\Scripts\jquery-3.3.1.js" />
     <Content Include="Resources\JS\Scripts\jquery-3.3.1.min.js" />
     <Content Include="Resources\JS\Scripts\jquery-3.3.1.slim.js" />
@@ -312,8 +324,7 @@
     <Content Include="Resources\JS\Scripts\popper.js.map" />
     <Content Include="Resources\JS\Scripts\popper-utils.min.js.map" />
     <Content Include="Resources\JS\Scripts\popper-utils.js.map" />
-    <Content Include="Views\Home\New\Index.cshtml" />
-    <Content Include="Views\Home\New\View.cshtml" />
+    <Content Include="Views\Home\New\Carosel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

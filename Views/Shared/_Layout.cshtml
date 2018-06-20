@@ -17,13 +17,12 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="navbar-brand dropdown">
-                    <a class="dropdown-toggle ItemCenter Menu" data-toggle="dropdown" href="#">About U</a>
+                    <a class="dropdown-toggle ItemCenter Menu" data-toggle="dropdown" href="#">About Us</a>
                     <ul class="dropdown-menu Menu-dropdown">
                         <li><div class="dropdown-item Menu-dropdownitem" href="#">Introduction</div></li>
                         <li><div class="dropdown-item Menu-dropdownitem" href="#">FAQ</div></li>
                     </ul>
                 </li>
-                <li class="navbar-brand"><a class="Menu ItemCenter" href="#">Project</a></li>
                 <li class="navbar-brand dropdown">
                     <a class="dropdown-toggle ItemCenter Menu" data-toggle="dropdown" href="#">Service</a>
                     <ul class="dropdown-menu Menu-dropdown">
@@ -31,7 +30,8 @@
                         <li><div class="dropdown-item Menu-dropdownitem" href="#">Công nghệ xử lý nước thải</div></li>
                     </ul>
                 </li>
-                <li class="navbar-brand"><a class="Menu ItemCenter" href="#">IR</a></li>
+                <li class="navbar-brand"><a class="Menu ItemCenter" href="#">Project</a></li>
+                <li class="navbar-brand"><a class="Menu ItemCenter" href="#">News</a></li>
                 <li class="navbar-brand"><a class="Menu ItemCenter" href="#">Contact Us</a></li>
             </ul>
         </div>
@@ -39,17 +39,19 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="btn-block btn-sm mx-1">
-                <i class="fas fa-heart heart" style="font-size:1.5em"></i>
+            <a class="btn-sm mx-1">
+                <img src="~/Resources/Images/en.png" />
+            </a>
+            <a class="btn-sm mx-1">
+                <img src="~/Resources/Images/vi.png" />
             </a>
         </div>
-    </nav>
-
+    </nav>    
     <div class="container-fluid Body">
+        @Html.Partial("~/Views/Home/New/Carosel.cshtml")
         @RenderBody()
     </div>
-    @*@Html.Partial("~/Views/Home/Areas_Home_Sale.cshtml")
-        @Html.Partial("~/Views/Home/Detail_Carousel.cshtml")*@
+    @*Html.Partial("~/Views/Home/Detail_Carousel.cshtml")*@
     <div>
         <hr />
         <footer>
@@ -68,11 +70,17 @@
                     </li>
                 </ul>
             </div>
-            <div class="container-fluid Color" style="padding-top:20px">
+            <div class="container-fluid Colorfooter" style="padding-top:20px">
                 <div class="row MenuBT">
-                    <div class="col-sm-3">
-                        <h5 class="text-uppercase font-weight-bold">Footer Content</h5>
-                        <p>About Company?</p>
+                    <div class="col-sm-3 ">
+                        <h5 class="text-uppercase font-weight-bold">Contact Us</h5>
+                        <p class="Footercontent"> Đại Minh - Damifa Co. Ltd.</p>
+                        <p class="Footercontent"><a class="Footeractive">Văn Phòng chính</a></p>
+                        <p class="Footercontent">Địa chỉ: 60/44 Quốc Lộ 13, P.26, Q.BT, TP.HCM.</p>
+                        <p class="Footercontent">Điện thoại: 084 (08) 3899 7567</p>
+                        <p class="Footercontent">Fax: +084 (08) 3899 7569</p>
+                        <p class="Footercontent">E-Mail: damifa@hcm.vnn.vn || daiminh@damifa.com</p>
+                        
                     </div>
                     <div class="col-sm-3">
                         <h5 class="text-uppercase font-weight-bold">Footer Content</h5>
@@ -121,7 +129,7 @@
             <div class="container-fluid Copyright" style="padding-bottom:10px; padding-top:10px">
                 <div class="text-center MenuBT">
                     © 2018 Copyright:
-                    <a class="Menu" href="#">RealEstate.com</a>
+                    <a class="Menu" href="#">Damifa.vn</a>
                 </div>
             </div>
         </footer>
