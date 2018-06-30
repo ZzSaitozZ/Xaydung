@@ -2,61 +2,86 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="container-fluid">
-    <h1 style="text-align:center">Lĩnh vực đang hoạt động</h1>
+<div class="container-fluid" style="margin-top:30px">
+    <h2 style="text-align:center">Lĩnh vực đang hoạt động</h2>
     <div class="row justify-content-center">
-        <div class="col-3">
+        <div class="col-lg-4 col-md-6" style="text-align:center">
             <img class="Hinh" src="~/Resources/Images/Index/linhvuc1.jpg" />
             <h6 class="Linhvuc">Hợp tác, hỗ trợ và nghiên cứu cùng với các công ty trong và ngoài nước trong lĩnh vực bảo vệ môi trường.</h6>
         </div>
-        <div class="col-3">
+        <div class="col-lg-4 col-md-6" style="text-align:center">
             <img class="Hinh" src="~/Resources/Images/Index/linhvuc2.jpg" />
             <h6 class="Linhvuc">Thi công công trình</h6>
         </div>
-        <div class="col-3">
+        <div class="col-lg-4 col-md-6" style="text-align:center">
             <img class="Hinh" src="~/Resources/Images/Index/linhvuc3.jpg" />
             <h6 class="Linhvuc">Xây dựng và lắp đặt các hệ thống xử lý nước.</h6>
         </div>
-    </div>  
-    </br>
-    <div class="row justify-content-center">
-        <div class="col-3">            
-                <img class="Hinh" src="~/Resources/Images/Index/linhvuc4.jpg" />
-                <h6 class="Linhvuc">Chuyển giao công nghệ chuyên ngành xử lý nước và môi trường.</h6>
+        <div class="col-lg-4 col-md-6" style="text-align:center">
+            <img class="Hinh" src="~/Resources/Images/Index/linhvuc4.jpg" />
+            <h6 class="Linhvuc">Chuyển giao công nghệ chuyên ngành xử lý nước và môi trường.</h6>
         </div>
-        <div class="col-3">
+        <div class="col-lg-4 col-md-6" style="text-align:center">
             <img class="Hinh" src="~/Resources/Images/Index/linhvuc5.jpg" />
             <h6 class="Linhvuc">Hoạch định và đánh giá các thiết bị xử lý môi trường.</h6>
         </div>
-        <div class="col-3">
+        <div class="col-lg-4 col-md-6" style="text-align:center">
             <img class="Hinh" src="~/Resources/Images/Index/linhvuc6.jpg" />
             <h6 class="Linhvuc">Cung cấp bơm các loại và các thiết bị xử lý môi trường.</h6>
         </div>
     </div>
+    </br>
+    <div class="row justify-content-center">
+       
+    </div>
 </div>
+</br>
 <div class="container-fluid">
-    <h1 style="text-align:center">Đối tác chiến lược</h1>
+    <h2 style="text-align:center"> Tin tức sự kiện</h2>
     <div class="row justify-content-center">
         <div class="col-2">
+            <img class="Hinhtt" src="~/Resources/Images/Index/linhvuc2.jpg" />
+        </div>
+        <div class="col-3" style="padding:unset">
+            <h4 style="text-align:center">Tin tức 1</h4>
+            <p>Bla bal bla, blo blo blo</p>
+        </div>
+        <div class="col-2">
+            <img class="Hinhtt" src="~/Resources/Images/Index/linhvuc2.jpg" />
+        </div>
+        <div class="col-3" style="padding:unset">
+            <h4 style="text-align:center">Tin tức 2</h4>
+            <p>Bla bal bla, blo blo blo</p>
+        </div>
+    </div>
+</div>
+</br>
+ @Html.Partial("~/Views/Home/New/CaroselPJ.cshtml")
+</br>
+<div class="container-fluid">
+    <h2 style="text-align:center">Đối tác chiến lược</h2>
+    <div class="row justify-content-center">
+        <div class="col-sm-2">
             <div>
                 <img class="Logo" src="~/Resources/Images/logo/dosatron-because-life-is-powered-by-water_0.jpg" />
             </div>
         </div>
-        <div class="col-2">
+        <div class="col-sm-2">
             <div>
                 <img class="Logo" src="~/Resources/Images/logo/eversoft.png" />
             </div>
         </div>
-        <div class="col-2">
+        <div class="col-sm-2">
             <div>
                 <img class="Logo" src="~/Resources/Images/logo/ide evironment.png" />
             </div>
         </div>
-        <div class="col-2">
+        <div class="col-sm-2">
             <div>
                 <img class="Logo" src="~/Resources/Images/logo/Logo-Salmson-Copie.jpg" />
             </div>
         </div>
     </div>
 </div>
+
 <script src="~/Resources/JS/Index/AddJS.js"></script>

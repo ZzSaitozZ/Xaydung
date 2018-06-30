@@ -29,7 +29,8 @@ namespace Xaydung
                       "~/Resources/CSS/bootstrap/site.css"));
 
             bundles.Add(new StyleBundle("~/Content/Home").Include(
-                      "~/Resources/CSS/Home/FixStyle.css"));
+                      "~/Resources/CSS/Home/FixStyle.css",
+                      "~/Resources/CSS/Home/Detail_Slider_Style.css"));
 
             bundles.Add(new StyleBundle("~/Content/Icon").Include(
                       "~/Resources/Icons/css/fontawesome-all.css"));

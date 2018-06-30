@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/Home")
@@ -12,7 +12,7 @@
 <body style="padding-top:0px; padding-bottom:0px">
     <nav class="navbar navbar-expand-lg navbar-light Color fixed-top">
         <div class="navbar-brand">
-            <a class="Menu" href="#">REAL ESTATE</a>
+            <a class="Menu" href="#">DAMIFA</a>
         </div>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
@@ -50,8 +50,7 @@
     <div class="container-fluid Body">
         @Html.Partial("~/Views/Home/New/Carosel.cshtml")
         @RenderBody()
-    </div>
-    @*Html.Partial("~/Views/Home/Detail_Carousel.cshtml")*@
+    </div>   
     <div>
         <hr />
         <footer>
