@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="XaydungModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="XaydungModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CProject">
           <Key>
             <PropertyRef Name="ID" />
@@ -32,7 +32,7 @@ warning 6002: The table/view 'Xaydung.dbo.AddingNos' does not have a primary key
           <Property Name="Description" Type="nvarchar(max)" />
           <Property Name="Image" Type="varchar" MaxLength="50" />
         </EntityType>
-        <EntityContainer Name="XaydungModelStoreContainer">
+        <EntityContainer Name="XaydungModel1StoreContainer">
           <EntitySet Name="CProject" EntityType="Self.CProject" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AddingNos" EntityType="Self.AddingNos" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -51,7 +51,7 @@ warning 6002: The table/view 'Xaydung.dbo.AddingNos' does not have a primary key
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="XaydungModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="XaydungModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="CProject">
           <Key>
             <PropertyRef Name="ID" />
@@ -77,7 +77,7 @@ warning 6002: The table/view 'Xaydung.dbo.AddingNos' does not have a primary key
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityContainer Name="XaydungDAL" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="XaydungEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CProjects" EntityType="Self.CProject" />
           <EntitySet Name="AddingNos" EntityType="Self.AddingNo" />
         </EntityContainer>
@@ -86,9 +86,9 @@ warning 6002: The table/view 'Xaydung.dbo.AddingNos' does not have a primary key
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="XaydungModelStoreContainer" CdmEntityContainer="XaydungDAL">
+        <EntityContainerMapping StorageEntityContainer="XaydungModel1StoreContainer" CdmEntityContainer="XaydungEntities">
           <EntitySetMapping Name="CProjects">
-            <EntityTypeMapping TypeName="XaydungModel.CProject">
+            <EntityTypeMapping TypeName="XaydungModel1.CProject">
               <MappingFragment StoreEntitySet="CProject">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -101,7 +101,7 @@ warning 6002: The table/view 'Xaydung.dbo.AddingNos' does not have a primary key
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AddingNos">
-            <EntityTypeMapping TypeName="XaydungModel.AddingNo">
+            <EntityTypeMapping TypeName="XaydungModel1.AddingNo">
               <MappingFragment StoreEntitySet="AddingNos">
                 <ScalarProperty Name="NO" ColumnName="NO" />
                 <ScalarProperty Name="ID" ColumnName="ID" />

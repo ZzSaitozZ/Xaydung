@@ -33,10 +33,20 @@ namespace Xaydung.Controllers
             return View();
         }
 
+        public ActionResult Xulynuoccap()
+        {
+            return View();
+        }
+
+        public ActionResult Xulynuocthai()
+        {
+            return View();
+        }
+
         [HttpPost]
         public JsonResult getDuAn(int? page)
         {
-            XaydungDAL XdDal = new XaydungDAL();
+            XaydungEntities XdDal = new XaydungEntities();
             CProjectVM projectsVM = new CProjectVM();
             var b = XdDal.Database.SqlQuery<int>("select count(*) from dbo.AddingNos").FirstOrDefault();
             projectsVM.pageSize = 15;

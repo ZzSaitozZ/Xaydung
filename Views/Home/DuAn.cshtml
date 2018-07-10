@@ -1,137 +1,114 @@
-﻿
-@{ Layout = null;}
+﻿@*@{ Layout = "~/Views/Shared/_Layout.cshtml";}*@
 
+<style>
+    .checksign {
+        position: absolute;
+        right: 2px;
+        bottom: 2px;
+        width: 25px;
+        height: 25px
+    }
+</style>
+<br />
+<div class="testcenter" style="margin:auto" id="topPJ">
+    <h2 style="text-align:center">Các dự án đã hoàn thành và đang thi công</h2>
+</div>
+<ul style="font-size:16px" class="pagination justify-content-center"></ul>
+<script>
+    $(window).resize(function () {
+        var a = Math.floor($('body').width() / 270); $('.testcenter').width(270 * a);
+    });
+    $(window).ready(function () {
+        $(this).trigger("resize");
+        LoadData(1, true);
+    });
+    //#region AJAX LoadData
+    function LoadData(pageNumber, reload) {
+        $.ajax({
+            type: 'Post',
+            url: '/Home/getDuAn',
+            dataType: 'json',
+            data: { page: pageNumber },
+            success: function (data) {
+                $('.testcenter .transformer').remove();
+                var html = '';
+                $.each(data.projects, function (index, item) {
+                    // Dynamic create project blocks
+                    html +=
+                        '<div class="transformer" style="font-size:16px;width:250px;vertical-align:top;margin:10px;overflow:hidden;transition:height 1s;padding:0;display:inline-block">' +
+                        '<div class="to">' +
+                        ' <div class="from" style="position:relative;display:inline-block">' +
+                        ' <div style="position:relative">' +
+                        '<img style="width:250px;height:200px;" src="' + item.Image + '" />'
+                    if (item.Status != 0) {
+                        html += '<img class="checksign" src="/Resources/Images/DuAn/complete-icon.png" title="Đã Hoàn Thành" />'
+                    }
+                    else {
+                        html += '<img class="checksign" src="/Resources/Images/DuAn/inprogress-icon.png" title="Đang Thi Công" />'
+                    }
+                    html +=
+                        '</div>' +
+                        '<h6 style="background-color:#4169e1b5;color:white;opacity:1;display:block;text-align:center;" href="#">' + item.Name + '</h6>' +
+                        '</div>' +
+                        '<div>' + item.Place + '</div>' +
+                        '<div>' + item.Year + '</div>' +
+                        '<div>' + item.Description + '</div>' +
+                        '</div>' +
+                        '</div>';
 
+                });//End loop create block string
+                $('.testcenter').append(html);
+                $('.transformer').each(function () { $(this).height($(this).find('.from').height()) });
+                $('.transformer').hover(function () { $(this).height($(this).find('.to').height()); $(this).find('h6').css('color', 'powderblue'); }, function () { $(this).height($(this).find('.from').height()); $(this).find('h6').css('color', 'white'); });
+                if (!reload) {
+                    if ($(".pagination").data("pageCount") != data.pageCount) { reload = true; }
+                    $(".pagination").data("pageNumber", data.pageNumber).data("pageCount", data.pageCount);
+                    $(window).scrollTop(400);
+                }
 
-<head>
-   
+                // Pagination bar
+                if (reload) {
+                    html = '<li class="page-item"><a class="page-link PreNext" href="">Previous</a></li>';
+                    for (var i = 1; i <= data.pageCount; i++) {
+                        if (i != 1) { html += '<li class="page-item"><a  class="page-link number" href="">' + i + '</a></li>'; }
+                        else { html += '<li class="page-item active"><a class="page-link number" href="">' + i + '</a></li>'; }
+                    }
+                    html += '<li class="page-item"><a class="page-link PreNext" href="">Next</a></li>'
+                    $(".pagination").append(html);
+                    $(".number").click(function () {
+                        event.preventDefault();
+                        if (!$(this).parent().hasClass("active")) {
+                            LoadData($(this).html(), false);
+                            $(".pagination li.active").removeClass("active");
+                            $(this).parent().addClass("active");                            
+                        }
+                    });
 
-    <link href="~/Resources/CSS/bootstrap/bootstrap.min.css" rel="stylesheet" />
-    <script src="~/Resources/JS/Scripts/jquery-3.3.1.min.js"></script>
-    <script src="~/Resources/JS/Scripts/bootstrap.min.js"></script>
-    <style>
-        .checksign {
-            position: absolute;
-            right: 2px;
-            bottom: 2px;
-            width: 25px;
-            height: 25px
-        }
-    </style>
-</head>
-<body style="">
-    <div class="testcenter" style="margin:auto">
-
-
-
-    </div>
-
-    <ul style="font-size:16px" class="pagination justify-content-center"></ul>
-
-
-
-    <script>       
-        
-
-        $(window).resize(function () {
-            var a = Math.floor($('body').width() / 270); $('.testcenter').width(270 * a); });      
-            $(window).ready(function () {
-                $(this).trigger("resize");
-                LoadData(1, true);
-           
-
-
-        });
-        //#region AJAX LoadData
-            function LoadData(pageNumber,reload) {
-                $.ajax({
-                type: 'Post',
-                url: '/Home/getDuAn',
-                dataType: 'json',
-                data: { page: pageNumber },
-                success: function (data) {
-                    $('.testcenter .transformer').remove();
-                    var b = ''; var c = '';
-                    $.each(data.projects, function (index, item) {
-                        // Dynamic create project blocks
-                        b +=
-                            '<div class="transformer" style="font-size:16px;width:250px;vertical-align:top;margin:10px;overflow:hidden;transition:height 1s;padding:0;display:inline-block">' +
-                            '<div class="to">' +
-                            ' <div class="from" style="position:relative;display:inline-block">' +
-                            ' <div style="position:relative">'
-                            + '<img style="width:250px;height:200px;" src="' + item.Image + '" />'
-
-                        if (item.Status != 0) {
-                            b = b + '<img class="checksign" src="/Resources/Images/DuAn/complete-icon.png" title="Đã Hoàn Thành" />'
+                    // Adding pager data to <ul> tag & adding event handler to every <li> element
+                    $(".pagination").data("pageNumber", 1).data("pageCount", data.pageCount);
+                    $(".PreNext").click(function () {
+                        event.preventDefault();
+                        var pageNumber = $(".pagination").data("pageNumber");
+                        var pageCount = $(".pagination").data("pageCount");
+                        if ($(this).html() == 'Previous' && pageNumber > 1) {
+                            LoadData(pageNumber - 1, false);
+                            $(".pagination li.active").removeClass("active").prev().addClass("active");
                         }
                         else {
-                            b = b + '<img class="checksign" src="/Resources/Images/DuAn/inprogress-icon.png" title="Đang Thi Công" />'
+                            if ($(this).html() == 'Next' && pageNumber < pageCount) {
+                                LoadData(pageNumber + 1, false);
+                                $(".pagination li.active").removeClass("active").next().addClass("active");
+                            }
                         }
-                        b = b + '</div>' +
-                            '<h6 style="background-color:#4169e1b5;color:white;opacity:1;display:block;text-align:center;" href="#">' + item.Name + '</h6>' +
 
-                            '</div>' +
-
-                            '<div>' + item.Place + '</div>' +
-                            '<div>' + item.Year + '</div>' +
-                            '<div>' + item.Description + '</div>' +
-
-                            '</div>' +
-                            '</div>';
-
-                     });//End loop create block string
-                    $('.testcenter').append(b);
-                    $('.transformer').each(function () { $(this).height($(this).find('.from').height()) });
-                    $('.transformer').hover(function () { $(this).height($(this).find('.to').height()); $(this).find('h6').css('color', 'powderblue'); }, function () { $(this).height($(this).find('.from').height()); $(this).find('h6').css('color', 'white');  });
-                    if (!reload) {
-                        if ($(".pagination").data("pageCount") != data.pageCount) { reload = true; }
-                        $(".pagination").data("pageNumber", data.pageNumber).data("pageCount", data.pageCount);
-                         }
-
-                    // Pagination bar
-                    if (reload) {
-                        c = '<li class="page-item"><a class="page-link PreNext" href="">Previous</a></li>';
-                        for (var i = 1; i <= data.pageCount; i++) {
-                            if (i != 1) { c += '<li class="page-item"><a  class="page-link number" href="">' + i + '</a></li>'; }
-                            else { c += '<li class="page-item active"><a class="page-link number" href="">' + i + '</a></li>'; }
-                        }
-                        c += '<li class="page-item"><a class="page-link PreNext" href="">Next</a></li>'
-                        $(".pagination").append(c);
-                        $(".number").click(function () {
-                            event.preventDefault();
-                            if (!$(this).parent().hasClass("active"))
-                            {
-                                LoadData($(this).html(), false);
-                                $(".pagination li.active").removeClass("active");
-                                $(this).parent().addClass("active");
-                            }
-                        });
-
-                        // Adding pager data to <ul> tag & adding event handler to every <li> element
-                        $(".pagination").data("pageNumber", 1).data("pageCount", data.pageCount);
-                            $(".PreNext").click(function () {
-                            event.preventDefault();
-                            var pageNumber = $(".pagination").data("pageNumber");
-                            var pageCount = $(".pagination").data("pageCount");
-                            if ($(this).html() == 'Previous' && pageNumber > 1) {
-                                LoadData(pageNumber -1, false);
-                                $(".pagination li.active").removeClass("active").prev().addClass("active");
-                            }
-                             else   {
-                                if ($(this).html() == 'Next' && pageNumber < pageCount) {
-                                    LoadData(pageNumber + 1, false);
-                                    $(".pagination li.active").removeClass("active").next().addClass("active");
-                                }
-                            }
-
-                        })
-                    }
-                },
-                error: function () { $('.testcenter').append('<div>RIP MY ASS</div>'); }
-                });
-            }
+                    })
+                }
+                /* $('body').scrollspy({ target: '#topPJ' })*/
+                
+            },
+            error: function () { $('.testcenter').append('<div>RIP MY ASS</div>'); }
+        });
+    }
         //#endregion AJAX LoadData
-    </script>
-
-</body>
+</script>
 

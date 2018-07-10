@@ -2,35 +2,38 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    @*<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">*@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/Home")
     @Styles.Render("~/Content/Icon")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body style="padding-top:0px; padding-bottom:0px">
+<body style="padding-top:0px; padding-bottom:0px" id="Body1">
     <nav class="navbar navbar-expand-lg navbar-light Color fixed-top">
         <div class="navbar-brand">
-            <a class="Menu" href="#">DAMIFA</a>
+            <a class="Menu" href="~/Home/Index">DAMIFA</a>
         </div>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
-                <li class="navbar-brand dropdown">
+                <li class="navbar-brand"><a class="Menu ItemCenter" href="~/Home/About">About Us</a></li>
+                @*<li class="navbar-brand dropdown">
                     <a class="dropdown-toggle ItemCenter Menu" data-toggle="dropdown" href="#">About Us</a>
                     <ul class="dropdown-menu Menu-dropdown">
-                        <li><div class="dropdown-item Menu-dropdownitem" href="#">Introduction</div></li>
+                        <li><div class="dropdown-item Menu-dropdownitem"><a class="Menu" href="~/Home/About">Introduction</a></div></li>
                         <li><div class="dropdown-item Menu-dropdownitem" href="#">FAQ</div></li>
                     </ul>
-                </li>
+                </li>*@
                 <li class="navbar-brand dropdown">
                     <a class="dropdown-toggle ItemCenter Menu" data-toggle="dropdown" href="#">Service</a>
                     <ul class="dropdown-menu Menu-dropdown">
-                        <li><div class="dropdown-item Menu-dropdownitem" href="#">Công nghệ xử lý nước cấp</div></li>
-                        <li><div class="dropdown-item Menu-dropdownitem" href="#">Công nghệ xử lý nước thải</div></li>
+                        <li><div class="dropdown-item Menu-dropdownitem" onclick="location.href='/Home/Xulynuoccap'">Công nghệ xử lý nước cấp</div></li>
+                        <li><div class="dropdown-item Menu-dropdownitem" onclick="location.href='/Home/Xulynuocthai'">Công nghệ xử lý nước thải</div></li>
                     </ul>
                 </li>
-                <li class="navbar-brand"><a class="Menu ItemCenter" href="#">Project</a></li>
+                <li class="navbar-brand"><a class="Menu ItemCenter" href="~/Home/DuAn">Project</a></li>
                 <li class="navbar-brand"><a class="Menu ItemCenter" href="#">News</a></li>
                 <li class="navbar-brand"><a class="Menu ItemCenter" href="#">Contact Us</a></li>
             </ul>
@@ -49,13 +52,15 @@
     </nav>    
     <div class="container-fluid Body">
         @Html.Partial("~/Views/Home/New/Carosel.cshtml")
+        <hr style="margin:unset;height:12px; border: 0; box-shadow: inset 0 15px 15px -14px rgba(0,0,0,0.5)" />
         @RenderBody()
     </div>   
     <div>
+        <br />
         <hr />
         <footer>
             <div class="text-center">
-                <h3>Hãy kết nối với chúng tôi</h3>
+                <h3>Hãy kết nối với chúng tôi</h3>                
                 <ul class="list-unstyled list-inline">
                     <li class="list-inline-item">
                         <a class="btn-block btn-sm mx-1">
@@ -69,8 +74,10 @@
                     </li>
                 </ul>
             </div>
-            <div class="container-fluid Colorfooter" style="padding-top:20px">
-                <div class="row MenuBT">
+            <br />
+            <hr style="margin:unset ; border: 0; box-shadow: 0 14px 15px 15px rgba(0,0,0,0.5)" />
+            <div class="container-fluid Colorfooter" style="padding-top:20px;position:relative">
+                <div class="row MenuBT justify-content-center">
                     <div class="col-sm-3 ">
                         <h5 class="text-uppercase font-weight-bold">Contact Us</h5>
                         <p class="Footercontent"> Đại Minh - Damifa Co. Ltd.</p>
@@ -79,21 +86,7 @@
                         <p class="Footercontent">Điện thoại: 084 (08) 3899 7567</p>
                         <p class="Footercontent">Fax: +084 (08) 3899 7569</p>
                         <p class="Footercontent">E-Mail: damifa@hcm.vnn.vn || daiminh@damifa.com</p>
-                        
-                    </div>
-                    <div class="col-sm-3">
-                        <h5 class="text-uppercase font-weight-bold">Footer Content</h5>
-                        <ul class="list-unstyled">
-                            <li>
-                                <a class="Menu" href="#">Link 1</a>
-                            </li>
-                            <li>
-                                <a class="Menu" href="#">Link 2</a>
-                            </li>
-                            <li>
-                                <a class="Menu" href="#">Link 3</a>
-                            </li>
-                        </ul>
+
                     </div>
                     <div class="col-sm-3">
                         <h5 class="text-uppercase font-weight-bold">Footer Content</h5>
@@ -124,6 +117,7 @@
                         </ul>
                     </div>
                 </div>
+                <br />
             </div>
             <div class="container-fluid Copyright" style="padding-bottom:10px; padding-top:10px">
                 <div class="text-center MenuBT">
@@ -133,8 +127,7 @@
             </div>
         </footer>
     </div>
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+
     @RenderSection("scripts", required: false)
 </body>
 </html>

@@ -13,10 +13,10 @@ namespace Xaydung
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class XaydungDAL : DbContext
+    public partial class XaydungEntities : DbContext
     {
-        public XaydungDAL()
-            : base("name=XaydungDAL")
+        public XaydungEntities()
+            : base("name=XaydungEntities")
         {
         }
     
