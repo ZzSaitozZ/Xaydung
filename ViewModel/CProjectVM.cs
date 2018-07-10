@@ -13,5 +13,6 @@ namespace Xaydung.ViewModel
         public int pageCount { get; set; }
         public int pageSize { get; set; }
         public int pageNumber { get; set; }
+        public int numberOfItems { get; set; }
     }
 }

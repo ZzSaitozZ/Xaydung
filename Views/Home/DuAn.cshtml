@@ -10,25 +10,28 @@
     }
 </style>
 <br />
+<h2 id="DuAnTitle" style="text-align:center">Các dự án đã hoàn thành và đang thi công</h2>
 <div class="testcenter" style="margin:auto" id="topPJ">
-    <h2 style="text-align:center">Các dự án đã hoàn thành và đang thi công</h2>
+    @Html.AntiForgeryToken()
 </div>
 <ul style="font-size:16px" class="pagination justify-content-center"></ul>
 <script>
-    $(window).resize(function () {
-        var a = Math.floor($('body').width() / 270); $('.testcenter').width(270 * a);
-    });
-    $(window).ready(function () {
-        $(this).trigger("resize");
+    function centerProjects(numberOfItems) {
+        var a = Math.floor($('body').width() / 270);
+        if (numberOfItems < a) a = numberOfItems;
+        $('.testcenter').width(270 * a);
+    };
+    $(window).ready(function () {        
         LoadData(1, true);
     });
     //#region AJAX LoadData
     function LoadData(pageNumber, reload) {
+        var token = $('input[name="__RequestVerificationToken"]').val();
         $.ajax({
             type: 'Post',
             url: '/Home/getDuAn',
             dataType: 'json',
-            data: { page: pageNumber },
+            data: { __RequestVerificationToken: token, page: pageNumber },
             success: function (data) {
                 $('.testcenter .transformer').remove();
                 var html = '';
@@ -63,7 +66,8 @@
                 if (!reload) {
                     if ($(".pagination").data("pageCount") != data.pageCount) { reload = true; }
                     $(".pagination").data("pageNumber", data.pageNumber).data("pageCount", data.pageCount);
-                    $(window).scrollTop(400);
+                    let top = $('#DuAnTitle').position().top - $('nav').outerHeight(true);
+                    $(window).scrollTop(top);
                 }
 
                 // Pagination bar
@@ -103,7 +107,17 @@
 
                     })
                 }
-                /* $('body').scrollspy({ target: '#topPJ' })*/
+                //Change event handler of resize event
+                const d = data.numberOfItems;
+                $(window).off('resize');
+                (function (d) {
+                    $(window).on("resize", function () {
+                        centerProjects(d);
+                        console.log(d);
+                    });
+                })(d);
+                //trigger event
+                $(window).trigger('resize');
                 
             },
             error: function () { $('.testcenter').append('<div>RIP MY ASS</div>'); }

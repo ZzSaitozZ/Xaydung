@@ -44,6 +44,7 @@ namespace Xaydung.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public JsonResult getDuAn(int? page)
         {
             XaydungEntities XdDal = new XaydungEntities();
@@ -59,6 +60,7 @@ namespace Xaydung.Controllers
             projectsVM.pageNumber = (int)page;
             string command = "Select ID,Name,Place,Year,Status,Description,Image from dbo.AddingNos Where NO >" + (page - 1) * projectsVM.pageSize + "and NO <=" + page * projectsVM.pageSize;
             projectsVM.projects = XdDal.CProjects.SqlQuery(command).ToList();
+            projectsVM.numberOfItems = projectsVM.projects.Count();
             return Json(projectsVM, JsonRequestBehavior.AllowGet);
         }
     }
