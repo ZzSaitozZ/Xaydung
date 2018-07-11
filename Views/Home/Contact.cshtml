@@ -1,17 +1,132 @@
-﻿@{
-    ViewBag.Title = "Contact";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+﻿
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+<style>
+    #map {
+        height: 500px;
+        width: 50%;
+        display: inline-block;
+    }
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+    .box_contact_r input {
+        height: 30px
+    }
+
+    .box_contact_r tr {
+        font-size: 18px;
+    }
+
+    #outer {
+        background-image: url('../../Resources/Images/Hinhanh/wood.jpg');
+        height: 500px
+    }
+
+    form[name='frm'] {
+        margin: 1em;
+    }
+
+    form td span {
+        color: #e40303
+    }
+</style>
+<h2 style="text-align:center">Liên hệ</h2>
+<div class="row  " id="outer">
+    <div id="map" class="col-7"></div>
+    <div class="col-5 align-self-center " style="display:inline-block;text-align:center;max-height:500px;overflow:auto">
+        <div class="box_contact_r" style="display:inline-block;background-color:lightgoldenrodyellow;">
+            <form method="post" name="frm" action="index.php?com=lien-he&amp;lang=vi">
+
+                <table cellpadding="5" cellspacing="0" border="0" class="tablelienhe">
+                    <tbody>
+                        <tr>
+                            <td>Họ và tên<span>*</span></td>
+                            <td><input name="ten" type="text" class="input" id="ten" size="30"></td>
+                        </tr>
+                        <tr>
+                            <td>Địa chỉ<span>*</span></td>
+                            <td><input name="diachi" id="diachi" type="text" class="input" size="30"></td>
+                        </tr>
+                        <tr>
+                            <td>Số điện thoại<span>*</span></td>
+                            <td><input name="dienthoai" id="dienthoai" type="text" class="input" size="30"></td>
+                        </tr>
+                        <tr>
+                            <td>Email<span>*</span></td>
+                            <td><input name="email" type="text" class="input" size="30"></td>
+                        </tr>
+                        <tr>
+                            <td>Chủ đề<span>*</span></td>
+                            <td>
+                                <input name="tieude" type="text" class="input" id="tieude" size="30">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Nội dung<span>*</span></td>
+                            <td>
+                                <textarea name="noidung" cols="31" rows="5" class="ta_noidung" id="noidung" style="background-color:#FFFFFF; color:#666666;"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>
+                                <input class="button" type="button" value="Gửi" onclick="js_submit();">
+                                <input class="button" type="button" value="Nhập lại" onclick="document.frm.reset();">
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script>
+
+
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 16,
+            center: {
+                lat: 10.813786902664901, lng: 106.71341728836057
+            },
+            scrollwheel: false,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(10.81189, 106.71331),
+            map: map,
+            title: 'Hello World!'
+        });
+        marker.setMap(map);
+
+        var contentString = '<h3>Công ty TNHH Xây dựng và Xử lý môi trường</h3>' +
+            '<h3>Đại Minh - DAMIFA Co.,Ltd.</h3>' +
+            '<p><strong><em style="text-decoration:underline"> VĂN PHÒNG CHÍNH</em></strong></p>' +
+            '<p>Địa chỉ:60/44 Quốc lộ 13,P.26,Q.Bình Thạnh,TPHCM</p>' +
+            '<p>Điện thoại: +84 (028) 3899 7567</p>' +
+            '<p>Fax: +84 (028) 3899 7569</p>' +
+            '<p>Email: <a href="#">damifa@hcm.vnn.vn</a> || <a href="#">daiminh@damifa.com</a></p>'
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+        infowindow.open(map, marker);
+        marker.addListener('mouseover', function () {
+            infowindow.open(map, marker);
+        });
+
+
+
+    };
+
+
+
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBU3hqOBborqZ-D86SlDhwOTiUA_D-Dke0&callback=initMap">
+</script>
