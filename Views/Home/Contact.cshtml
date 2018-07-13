@@ -2,22 +2,37 @@
 
 <style>
     #map {
-        height: 500px;
-        width: 50%;
-        display: inline-block;
+        height: 500px;        
+           align-self:center;
     }
+
+    td .btn {
+        padding:0;
+        width:85px;        
+    }
+
+    .outerx {
+        transition: width 1s;
+        width:40%;
+        
+    }
+    
+    input,textarea {max-width:100%;}
 
     .box_contact_r input {
         height: 30px
     }
 
     .box_contact_r tr {
-        font-size: 18px;
+        font-size: 16px;
+        max-width:100%;
+        text-align:left;
     }
 
     #outer {
         background-image: url('../../Resources/Images/Hinhanh/wood.jpg');
-        height: 500px
+        justify-content:center;  
+        padding:10px
     }
 
     form[name='frm'] {
@@ -28,48 +43,56 @@
         color: #e40303
     }
 </style>
-<h2 style="text-align:center">Liên hệ</h2>
 <div class="row  " id="outer">
-    <div id="map" class="col-7"></div>
-    <div class="col-5 align-self-center " style="display:inline-block;text-align:center;max-height:500px;overflow:auto">
-        <div class="box_contact_r" style="display:inline-block;background-color:lightgoldenrodyellow;">
+
+    
+    <div class="align-self-center  col-lg-6 col-sm-11 " style="display:inline-block;text-align:center;max-height:600px;overflow:auto">
+        <div class="box_contact_r" style="display:inline-block;background-color:rgba(250, 250, 210, 0.4117647058823529);">
             <form method="post" name="frm" action="index.php?com=lien-he&amp;lang=vi">
 
                 <table cellpadding="5" cellspacing="0" border="0" class="tablelienhe">
                     <tbody>
-                        <tr>
-                            <td>Họ và tên<span>*</span></td>
-                            <td><input name="ten" type="text" class="input" id="ten" size="30"></td>
+                        <tr style="background-color:rgba(255, 248, 220, 0.5607843137254902)">
+                            <td colspan="2"><h2 style="text-align:center;color:rgba(0, 0, 0, 0.2784313725490196) ">LIÊN HỆ</h2></td>
                         </tr>
                         <tr>
+                            <td>Họ và tên<span>*</span></td>
                             <td>Địa chỉ<span>*</span></td>
-                            <td><input name="diachi" id="diachi" type="text" class="input" size="30"></td>
+
+                        </tr>
+                        <tr>
+                            <td><input name="ten" type="text" class="form-control" id="inputdefault" size="30"></td>
+                            <td><input name="diachi" id="diachi" type="text" class="form-control" size="30"></td>
                         </tr>
                         <tr>
                             <td>Số điện thoại<span>*</span></td>
-                            <td><input name="dienthoai" id="dienthoai" type="text" class="input" size="30"></td>
+                            <td>Email<span>*</span></td>
                         </tr>
                         <tr>
-                            <td>Email<span>*</span></td>
-                            <td><input name="email" type="text" class="input" size="30"></td>
+                            <td><input name="dienthoai" id="dienthoai" type="text" class="form-control" size="30"></td>
+                            <td><input name="email" type="text" class="form-control" size="30"></td>
                         </tr>
+
                         <tr>
                             <td>Chủ đề<span>*</span></td>
-                            <td>
-                                <input name="tieude" type="text" class="input" id="tieude" size="30">
-                            </td>
+
+                        </tr>
+                        <tr>
+                            <td colspan="2"><input class="form-control" name="tieude" type="text" id="tieude" style="width:100%"></td>
                         </tr>
                         <tr>
                             <td>Nội dung<span>*</span></td>
-                            <td>
-                                <textarea name="noidung" cols="31" rows="5" class="ta_noidung" id="noidung" style="background-color:#FFFFFF; color:#666666;"></textarea>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <span><textarea name="noidung" cols="31" rows="5" class="form-control" id="noidung" style="background-color:#FFFFFF; color:#666666;"></textarea></span>
                             </td>
                         </tr>
                         <tr>
-                            <td>&nbsp;</td>
-                            <td>
-                                <input class="button" type="button" value="Gửi" onclick="js_submit();">
-                                <input class="button" type="button" value="Nhập lại" onclick="document.frm.reset();">
+
+                            <td colspan="2" style="text-align:center">
+                                <input class="btn btn-primary" type="button" value="Gửi" onclick="js_submit();">
+                                <input class="btn btn-secondary" type="button" value="Nhập lại" onclick="document.frm.reset();">
 
                             </td>
                         </tr>
@@ -78,6 +101,7 @@
             </form>
         </div>
     </div>
+    <div id="map" class="col-lg-6 col-sm-11"></div>
 </div>
 
 
@@ -105,8 +129,8 @@
         });
         marker.setMap(map);
 
-        var contentString = '<h3>Công ty TNHH Xây dựng và Xử lý môi trường</h3>' +
-            '<h3>Đại Minh - DAMIFA Co.,Ltd.</h3>' +
+        var contentString = '<h5>Công ty TNHH Xây dựng và Xử lý môi trường</h5>' +
+            '<h5>Đại Minh - DAMIFA Co.,Ltd.</h5>' +
             '<p><strong><em style="text-decoration:underline"> VĂN PHÒNG CHÍNH</em></strong></p>' +
             '<p>Địa chỉ:60/44 Quốc lộ 13,P.26,Q.Bình Thạnh,TPHCM</p>' +
             '<p>Điện thoại: +84 (028) 3899 7567</p>' +
@@ -123,7 +147,8 @@
 
 
     };
-
+    
+    //$('#map').hover(function () { $('.outerx').width(0) }, function () { $('.outerx').width(500) });
 
 
 </script>
