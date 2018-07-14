@@ -27,11 +27,11 @@
     color: white;
 }
 
-.Menu:hover {
+.Menu:hover, .current {
     color: powderblue;
-    text-decoration:none;
-    border-bottom:solid;
-    border-bottom-color:whitesmoke;
+    text-decoration: none;
+    border-bottom: solid;
+    border-bottom-color: whitesmoke;
 }
 
 .Menu-dropdown {

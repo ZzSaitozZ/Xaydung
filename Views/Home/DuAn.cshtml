@@ -120,7 +120,7 @@
                 $(window).trigger('resize');
                 
             },
-            error: function () { $('.testcenter').append('<div>RIP MY ASS</div>'); }
+            error: function (xhr) { alert(xhr.statusText); }
         });
     }
         //#endregion AJAX LoadData
