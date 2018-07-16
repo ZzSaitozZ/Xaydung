@@ -5,12 +5,48 @@ using System.Web;
 using System.Web.Mvc;
 using Xaydung.ViewModel;
 
+
 namespace Xaydung.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         public ActionResult Index()
         {
+            XaydungEntities XdDal = new XaydungEntities();
+            CProjectVM projectsVM = new CProjectVM();
+            string command = "Select top 8 * from CProject order by Year desc";
+            projectsVM.projects = XdDal.Database.SqlQuery<CProject>(command).ToList();
+            string append1 = "", append2 = "";
+            for(int i = 0; i <= 3; i++)
+            {
+                append1 +=
+                   " <div class=\"col-sm-3 bl-listing\" style=\"text-align:center\">" +
+                           "<div class=\"col-item\">" +
+                              " <div class=\"blocks\">" +
+                                   "<img class=\"rounded-circle\" itemprop=\"image\" src=\"" + projectsVM.projects[i].Image + "\" alt=\"Trung tâm thương mại\" onerror=\"this.src='/assets/images/listing-no-image.png'\">" +
+                                   "<div class=\"block-info\">" +
+                                       "<h3 itemprop = \"name\" class=\"module line-clamp\">" + projectsVM.projects[i].Name + "</h3>" +
+                                   "</div>" +
+                               "</div>" +
+                           "</div>" +
+                       "</div>";
+            }
+            for (int i = 4; i <= 7; i++)
+            {
+                append2 +=
+                   " <div class=\"col-sm-3 bl-listing\" style=\"text-align:center\">" +
+                           "<div class=\"col-item\">" +
+                              " <div class=\"blocks\">" +
+                                   "<img class=\"rounded-circle\" itemprop=\"image\" src=\"" + projectsVM.projects[i].Image + "\" alt=\"Trung tâm thương mại\" onerror=\"this.src='/assets/images/listing-no-image.png'\">" +
+                                   "<div class=\"block-info\">" +
+                                       "<h3 itemprop = \"name\" class=\"module line-clamp\">" + projectsVM.projects[i].Name + "</h3>" +
+                                   "</div>" +
+                               "</div>" +
+                           "</div>" +
+                       "</div>";
+            }
+            ViewBag.append1 = append1;
+            ViewBag.append2 = append2;
             return View();
         }
 
@@ -24,6 +60,7 @@ namespace Xaydung.Controllers
         public ActionResult Contact()        {
             
             return View();
+            
         }
 
         public ActionResult DuAn()
@@ -36,6 +73,10 @@ namespace Xaydung.Controllers
             return View();
         }
 
+        public ActionResult Tintuc()
+        {
+            return View();
+        }
         public ActionResult Xulynuocthai()
         {
             return View();
@@ -48,7 +89,7 @@ namespace Xaydung.Controllers
             XaydungEntities XdDal = new XaydungEntities();
             CProjectVM projectsVM = new CProjectVM();
             var b = XdDal.Database.SqlQuery<int>("select count(*) from dbo.AddingNos").FirstOrDefault();
-            projectsVM.pageSize = 15;
+            projectsVM.pageSize = 9;
             if (b > 0)
             {
                 projectsVM.pageCount = (int)Math.Ceiling((double)b / projectsVM.pageSize);
@@ -61,5 +102,19 @@ namespace Xaydung.Controllers
             projectsVM.numberOfItems = projectsVM.projects.Count();
             return Json(projectsVM, JsonRequestBehavior.AllowGet);
         }
+
+        
+    }
+    public class BaseController : Controller
+    {
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            string lang = RouteData.Values["lang"] as string;
+                 if (lang != "en") lang = "vi";
+            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(lang);
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(lang);
+            base.OnActionExecuting(filterContext);
+        }
+        
     }
 }

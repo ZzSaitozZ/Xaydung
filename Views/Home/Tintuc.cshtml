@@ -1,0 +1,61 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Tintuc</title>
+    <style>
+        .ttcard {
+            max-width: 1000px;
+            background-color: red;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .ttimage {
+            width: 200px;
+            height: 200px;
+            display: inline-block;
+            background-color: blue;
+        }
+
+        .outercontent {
+           display:inline-block;
+           max-width:750px;
+           vertical-align:top;
+        }
+       .tttime{color:gray;}
+    </style>
+</head>
+<body>
+
+        <div class="ttcard ">
+            <div class="ttimage "></div>
+        
+                <div class="outercontent">
+                    <div class="tttitle">Ngay khong em anh day lams ao cho het ngay het trong roi mong cho den dem cho chong qua 1 ngay</div>
+                    <div class="tttime">10h30 hom nay</div>
+                    <br />
+                    <div class="ttcontent">Anh yeu em tim loi qua ,tham nhung luc anh nghi ve khi thoi gian a day song vui cung em , ngay khong em anh day lam sao cho eht ngay het trong roi mong cho chong qua 1 ngay.</div>
+                    <div class="ttviewdetail"></div>
+                </div>
+        
+        </div>
+    <script>
+        $(window).ready(function () { $(window).trigger('resize') });
+        $(window).resize(function () {
+            $('.outercontent').css('max-width', $('.ttcard').width() - 220);
+        })
+    </script>
+</body>
+</html>

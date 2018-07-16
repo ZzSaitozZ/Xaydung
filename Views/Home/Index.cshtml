@@ -1,33 +1,35 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-<h2 style="text-align:center; margin-top:10px; margin-bottom:5px;">Lĩnh vực đang hoạt động</h2>
+<h2 style="text-align:center; margin-top:10px; margin-bottom:5px;">@Resources.Index.Field</h2>
 <br />
 <div class="container-fluid" style="padding-left:100px;padding-right:100px">
-    <div class="row justify-content-center" style=" border:0; box-shadow: 0 1px 10px 1px rgba(0,0,0,0.5)">
+    <br />
+    <div class="row justify-content-center" style=" border:0; box-shadow: 0 1px 10px 1px rgba(0,0,0,0.5);padding-top:25px">
+        
         <div class="col-lg-4 col-md-6" style="text-align:center;">
             <img class="Hinh" src="~/Resources/Images/Index/linhvuc1.jpg" />
-            <h6 class="Linhvuc">Hợp tác, hỗ trợ và nghiên cứu cùng với các công ty trong và ngoài nước trong lĩnh vực bảo vệ môi trường.</h6>
+            <h6 class="Linhvuc">@Resources.Index.Field1</h6>
         </div>
         <div class="col-lg-4 col-md-6" style="text-align:center">
             <img class="Hinh" src="~/Resources/Images/Index/linhvuc2.jpg" />
-            <h6 class="Linhvuc">Thi công công trình</h6>
+            <h6 class="Linhvuc">@Resources.Index.Field2</h6>
         </div>
         <div class="col-lg-4 col-md-6" style="text-align:center">
             <img class="Hinh" src="~/Resources/Images/Index/linhvuc3.jpg" />
-            <h6 class="Linhvuc">Xây dựng và lắp đặt các hệ thống xử lý nước.</h6>
+            <h6 class="Linhvuc">@Resources.Index.Field3</h6>
         </div>
         <div class="col-lg-4 col-md-6" style="text-align:center">
             <img class="Hinh" src="~/Resources/Images/Index/linhvuc4.jpg" />
-            <h6 class="Linhvuc">Chuyển giao công nghệ chuyên ngành xử lý nước và môi trường.</h6>
+            <h6 class="Linhvuc">@Resources.Index.Field4</h6>
         </div>
         <div class="col-lg-4 col-md-6" style="text-align:center">
             <img class="Hinh" src="~/Resources/Images/Index/linhvuc5.jpg" />
-            <h6 class="Linhvuc">Hoạch định và đánh giá các thiết bị xử lý môi trường.</h6>
+            <h6 class="Linhvuc">@Resources.Index.Field5</h6>
         </div>
         <div class="col-lg-4 col-md-6" style="text-align:center">
             <img class="Hinh" src="~/Resources/Images/Index/linhvuc6.jpg" />
-            <h6 class="Linhvuc">Cung cấp bơm các loại và các thiết bị xử lý môi trường.</h6>
+            <h6 class="Linhvuc">@Resources.Index.Field6</h6>
         </div>
     </div>
 </div>
@@ -36,28 +38,28 @@
 <hr style="margin:unset ; border: 0; box-shadow: 0 14px 15px 15px rgba(0,0,0,0.5)" />
 <div class="container-fluid" style="background-color:royalblue; color:white">
     <br />
-    <h2 style="text-align:center"> Tin tức sự kiện</h2>
+    <h2 style="text-align:center"> @Resources.Index.News</h2>
     <br />
     <div class="row justify-content-center">
         <div class="col-md-5">
             <div class="row">
                 <div class="col-sm-5">
-                    <img class="Hinhtt" src="~/Resources/Images/Index/linhvuc2.jpg" />
+                    <img class="Hinhtt" style="cursor:pointer" src="~/Resources/Images/Index/tintuc1.jpg" />
                 </div>
                 <div class="col-sm-7" style="padding:unset">
-                    <h4 style="text-align:center">Tin tức 1</h4>
-                    <p>Bla bal bla, blo blo blo</p>
+                    <h4 style="text-align:center;cursor:pointer">@Resources.Index.News1</h4>
+                    <p>@Resources.Index.News1detail</p>
                 </div>
             </div>            
         </div>
         <div class="col-md-5">
             <div class="row">
                 <div class="col-sm-5">
-                    <img class="Hinhtt" src="~/Resources/Images/Index/linhvuc2.jpg" />
+                    <img class="Hinhtt" style="height:179px;cursor:pointer" src="~/Resources/Images/Index/tintuc2.jpg" />
                 </div>
                 <div class="col-sm-7" style="padding:unset">
-                    <h4 style="text-align:center">Tin tức 2</h4>
-                    <p>Bla bal bla, blo blo blo</p>
+                    <h4 style="text-align:center;cursor:pointer">@Resources.Index.News2</h4>
+                    <p>@Resources.Index.News2detail </p>
                 </div>
             </div>            
         </div>
@@ -68,7 +70,7 @@
 <hr style="margin:unset;height:12px; border: 0; box-shadow: inset 0 15px 15px -14px rgba(0,0,0,0.5)" />
 <br />
 <div class="container-fluid">
-    <h2 style="text-align:center">Đối tác chiến lược</h2>
+    <h2 style="text-align:center">@Resources.Index.Partner</h2>
     <br />
     <div class="row justify-content-center">
         <div class="col-sm-2">

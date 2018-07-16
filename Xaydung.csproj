@@ -222,14 +222,22 @@
     <Content Include="Resources\Icons\webfonts\fa-brands-400.svg" />
     <Content Include="Resources\Icons\webfonts\fa-regular-400.svg" />
     <Content Include="Resources\Icons\webfonts\fa-solid-900.svg" />
+    <Content Include="Resources\Images\DuAn\2.jpg" />
+    <Content Include="Resources\Images\DuAn\3.jpg" />
+    <Content Include="Resources\Images\DuAn\4.jpg" />
+    <Content Include="Resources\Images\DuAn\5.jpg" />
+    <Content Include="Resources\Images\DuAn\6.jpg" />
+    <Content Include="Resources\Images\DuAn\7.jpg" />
+    <Content Include="Resources\Images\DuAn\8.png" />
+    <Content Include="Resources\Images\DuAn\9.jpeg" />
     <Content Include="Resources\Images\DuAn\complete-icon.png" />
     <Content Include="Resources\Images\DuAn\inprogress-icon.png" />
-    <Content Include="Resources\Images\DuAn\venom.jpg" />
+    <Content Include="Resources\Images\DuAn\1.jpg" />
     <Content Include="Resources\Images\en.png" />
     <Content Include="Resources\Images\Hinhanh\1.jpg" />
     <Content Include="Resources\Images\Hinhanh\2.JPG" />
     <Content Include="Resources\Images\Hinhanh\7.jpg" />
-    <Content Include="Resources\Images\Hinhanh\dark2.jpg" />
+    <Content Include="Resources\Images\Hinhanh\logo.png" />
     <Content Include="Resources\Images\Hinhanh\wood.jpg" />
     <Content Include="Resources\Images\Index\bewater.jpg" />
     <Content Include="Resources\Images\Index\left-arrow.png" />
@@ -240,6 +248,8 @@
     <Content Include="Resources\Images\Index\linhvuc5.jpg" />
     <Content Include="Resources\Images\Index\linhvuc6.jpg" />
     <Content Include="Resources\Images\Index\right-arrow.png" />
+    <Content Include="Resources\Images\Index\tintuc1.jpg" />
+    <Content Include="Resources\Images\Index\tintuc2.jpg" />
     <Content Include="Resources\Images\Index\Water treatment.jpg" />
     <Content Include="Resources\Images\Index\water-supply.jpg" />
     <Content Include="Resources\Images\Index\water.jpeg" />
@@ -384,6 +394,7 @@
     <Content Include="Views\Home\DuAn.cshtml" />
     <Content Include="Views\Home\Xulynuoccap.cshtml" />
     <Content Include="Views\Home\Xulynuocthai.cshtml" />
+    <Content Include="Views\Home\Tintuc.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -402,6 +413,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\XML\HomeText - ENG.resx" />
     <EmbeddedResource Include="Resources\XML\HomeText.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Resources\Resources.csproj">
+      <Project>{2bab8107-fa69-48bb-a585-88fe6647c3dd}</Project>
+      <Name>Resources</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
