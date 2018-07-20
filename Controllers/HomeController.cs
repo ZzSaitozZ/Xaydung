@@ -14,7 +14,7 @@ namespace Xaydung.Controllers
         {
             XaydungEntities XdDal = new XaydungEntities();
             CProjectVM projectsVM = new CProjectVM();
-            string command = "Select top 8 * from CProject order by Year desc";
+            string command = "Select top 8 * from "+ @Resources.DuAn.CProject +" order by Year desc";
             projectsVM.projects = XdDal.Database.SqlQuery<CProject>(command).ToList();
             string append1 = "", append2 = "";
             for(int i = 0; i <= 3; i++)
@@ -88,7 +88,7 @@ namespace Xaydung.Controllers
         {
             XaydungEntities XdDal = new XaydungEntities();
             CProjectVM projectsVM = new CProjectVM();
-            var b = XdDal.Database.SqlQuery<int>("select count(*) from dbo.AddingNos").FirstOrDefault();
+            var b = XdDal.Database.SqlQuery<int>("select count(*) from dbo."+ @Resources.DuAn.AddingNos).FirstOrDefault();
             projectsVM.pageSize = 9;
             if (b > 0)
             {
@@ -97,7 +97,7 @@ namespace Xaydung.Controllers
             }
             else { projectsVM.pageCount = 0; page = 0; }
             projectsVM.pageNumber = (int)page;
-            string command = "Select ID,Name,Place,Year,Status,Description,Image from dbo.AddingNos Where NO >" + (page - 1) * projectsVM.pageSize + "and NO <=" + page * projectsVM.pageSize;
+            string command = "Select ID,Name,Place,Year,Status,Description,Image from dbo."+ @Resources.DuAn.AddingNos +" Where NO >" + (page - 1) * projectsVM.pageSize + "and NO <=" + page * projectsVM.pageSize;
             projectsVM.projects = XdDal.CProjects.SqlQuery(command).ToList();
             projectsVM.numberOfItems = projectsVM.projects.Count();
             return Json(projectsVM, JsonRequestBehavior.AllowGet);
@@ -109,8 +109,8 @@ namespace Xaydung.Controllers
     {
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            string lang = RouteData.Values["lang"] as string;
-                 if (lang != "en") lang = "vi";
+            string lang = RouteData.Values["lang"] as string; ;           
+            if (lang != "en") lang = "vi";
             System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(lang);
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(lang);
             base.OnActionExecuting(filterContext);

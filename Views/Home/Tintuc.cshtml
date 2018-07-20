@@ -1,7 +1,5 @@
 ﻿
-@{
-    Layout = null;
-}
+
 
 <!DOCTYPE html>
 
@@ -10,51 +8,86 @@
 <head>
 
     <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <link href="~/Resources/CSS/Home/Tintuc.css" rel="stylesheet" />
     <title>Tintuc</title>
     <style>
-        .ttcard {
-            max-width: 1000px;
-            background-color: red;
-            padding: 10px;
-            border-radius: 10px;
-        }
-
-        .ttimage {
-            width: 200px;
-            height: 200px;
-            display: inline-block;
-            background-color: blue;
-        }
-
-        .outercontent {
-           display:inline-block;
-           max-width:750px;
-           vertical-align:top;
-        }
-       .tttime{color:gray;}
     </style>
+
 </head>
 <body>
+    <h2>TIN TỨC</h2>    
+
+    <div class="ttcard ">
+        <div class="ttimage ">
+            <img class="ttimage" src="~/Resources/Images/Tintuc/4.jpg" />
+        </div>
+
+        <div class="outercontent">
+            <div class="tttitle">Bổ sung nước đúng cách khi trời nắng nóng</div>
+            <div class="tttime">11:00 16/07/2018</div>
+            <br class="ttcontent" />
+            <div class="ttcontent">Mùa hè với những cơn nắng nóng khiến cho cơ thể bị mất nước nhiều hơn. Bổ sung nước đúng cách, kịp thời sẽ giúp bạn tránh nguy cơ mắc bệnh do thiếu nước.</div>
+            <div class="ttviewdetail"></div>
+        </div>
+
+    </div>
+
+    <div class="ttcard ">
+        <div class="ttimage ">
+
+            <img class="ttimage" src="~/Resources/Images/Tintuc/1.JPG" />
+        </div>
+
+        <div class="outercontent">
+            <div class="tttitle">TP.HCM sẽ giảm đàn cá trên kênh Nhiêu Lộc – Thị Nghè</div>
+            <div class="tttime">09:10 22/05/2018</div>
+            <br class="ttcontent" />
+            <div class="ttcontent">Sau những cơn mưa lớn đầu mùa, cá trên kênh Nhiêu Lộc – Thị Nghe bắt đầu chết hàng loạt. Đây là hiện tượng xảy ra thường niên trong những năm gần đây.</div>
+            <div class="ttviewdetail"></div>
+        </div>
+
+    </div>
+
+    <div class="ttcard ">
+        <div class="ttimage ">
+            <img class="ttimage" src="~/Resources/Images/Tintuc/3.JPG" />
+        </div>
+
+        <div class="outercontent">
+            <div class="tttitle">NHỮNG CÔNG NGHỆ XỬ LÝ NƯỚC THẢI SINH HOẠT MỚI NHẤT HIỆN NAY</div>
+            <div class="tttime">5/3/2018</div>
+            <br class="ttcontent" />
+            <div class="ttcontent">Việc xử lý nước thải sinh hoạt có vai trò rất quan trọng trong đời sống cũng như sự phát triển chung của mọi người. Bài viết xin giới thiệu những công nghệ xử lý nước tốt nhất tại Việt Nam.</div>
+            <div class="ttviewdetail"></div>
+        </div>
+    </div>
 
         <div class="ttcard ">
-            <div class="ttimage "></div>
-        
-                <div class="outercontent">
-                    <div class="tttitle">Ngay khong em anh day lams ao cho het ngay het trong roi mong cho den dem cho chong qua 1 ngay</div>
-                    <div class="tttime">10h30 hom nay</div>
-                    <br />
-                    <div class="ttcontent">Anh yeu em tim loi qua ,tham nhung luc anh nghi ve khi thoi gian a day song vui cung em , ngay khong em anh day lam sao cho eht ngay het trong roi mong cho chong qua 1 ngay.</div>
-                    <div class="ttviewdetail"></div>
-                </div>
-        
+            <div class="ttimage ">
+                <img class="ttimage" src="~/Resources/Images/Tintuc/2.JPG" />
+            </div>
+
+            <div class="outercontent">
+                <div class="tttitle">Gần 90 tấn cá bè trên sông Chà Và ở Vũng Tàu lại chết ồ ạt</div>
+                <div class="tttime">07:05 11/08/2017</div>
+                <br class="ttcontent" />
+                <div class="ttcontent">Cá ở các lồng nuôi có biểu hiện bỏ ăn, nổi lên mặt nước và chết ồ ạt. Trong một tuần, lực lượng chức năng ghi nhận các bè nuôi chịu thiệt hại gần 90 tấn cá.</div>
+                <div class="ttviewdetail"></div>
+            </div>
+
         </div>
+
+
+
+    
+    <div style="text-align:center;">
+        <button type="button" class="btn btn-primary">TIN TỨC TIẾP THEO</button>
+    </div>
     <script>
         $(window).ready(function () { $(window).trigger('resize') });
         $(window).resize(function () {
-            $('.outercontent').css('max-width', $('.ttcard').width() - 220);
+            $('.outercontent').css('max-width', $('.ttcard').width() - 330);
         })
     </script>
 </body>

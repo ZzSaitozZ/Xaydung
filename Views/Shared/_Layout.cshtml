@@ -37,7 +37,7 @@
                     </ul>
                 </li>
                 <li class="navbar-brand"><a class="Menu ItemCenter DuAn" href="@Resources.Layout.Projectlink">@Resources.Layout.Project</a></li>
-                <li class="navbar-brand"><a class="Menu ItemCenter" href="@Resources.Layout.Newslink">@Resources.Layout.News</a></li>
+                <li class="navbar-brand"><a class="Menu ItemCenter Tintuc" href="@Resources.Layout.Newslink">@Resources.Layout.News</a></li>
                 <li class="navbar-brand"><a class="Menu ItemCenter Contact" href="@Resources.Layout.Contactlink">@Resources.Layout.Contact</a></li>
             </ul>
         </div>
@@ -158,7 +158,11 @@
 
             })
         }
-
+            $(window).click(function () {
+                if ($('#navbarNavDropdown').hasClass('show')) {
+                    $('#navbarNavDropdown').collapse("hide");
+                }
+            })
     </script>
 
     @RenderSection("scripts", required: false)

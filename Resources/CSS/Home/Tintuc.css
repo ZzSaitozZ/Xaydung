@@ -1,0 +1,64 @@
+﻿body {
+   
+}
+
+body h2{
+    text-align:center;
+}
+
+body button{
+    width:163px;
+    margin:auto;
+}
+.ttcard {
+    max-width: 1000px;
+    background-color:white;
+    padding: 10px;
+    border-radius: 10px;
+    margin:10px auto;
+    border: lightgray solid 1px
+
+}
+
+.ttimage {
+    width: 300px;
+    height: 200px;
+    display: inline-block;
+    background-color: blue;
+    margin-right:10px;
+}
+
+.outercontent {
+    display: inline-block;
+    max-width: 750px;
+    vertical-align: top;
+    height:200px;
+}
+
+.tttime {
+    color: gray;    
+}
+
+.ttcontent {   
+   
+}
+.tttitle{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.ttcard:hover{
+    background-color:royalblue;
+}
+
+@media (max-width: 750px) {
+    .ttcard{
+        max-width:320px;
+    }
+    .ttcontent{
+        display:none;
+    }
+    .outercontent{
+        height:auto;
+    }
+}

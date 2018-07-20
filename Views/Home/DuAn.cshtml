@@ -9,40 +9,41 @@
         height: 25px
     }
 </style>
+<meta name="viewport" content="width=device-width" />
 <br />
-<h2 id="DuAnTitle" style="text-align:center">Các dự án đã hoàn thành và đang thi công</h2>
+<h2 id="DuAnTitle" style="text-align:center">@Resources.DuAn.Projects</h2>
 <div class="testcenter" style="margin:auto" id="topPJ">
     @Html.AntiForgeryToken()
 </div>
 <ul style="font-size:16px" class="pagination justify-content-center"></ul>
 <script>
     function centerProjects(numberOfItems) {
-        var a = Math.floor($('body').width() /390);
+        var a = Math.floor($('body').width() /410);
         if (numberOfItems < a) a = numberOfItems;
-        $('.testcenter').width(390 * a);
+        $('.testcenter').width(410 * a);
     };
     $(window).ready(function () {        
         LoadData(1, true);
     });
     //#region AJAX LoadData
     function LoadData(pageNumber, reload) {
-        var token = $('input[name="__RequestVerificationToken"]').val();
+        var token = $('input[name="__RequestVerificationToken"]').val();        
         $.ajax({
             type: 'Post',
-            url: '/Home/getDuAn',
+            url: '@Resources.DuAn.postDuAn',
             dataType: 'json',
-            data: { __RequestVerificationToken: token, page: pageNumber },
+            data: { __RequestVerificationToken: token, page: pageNumber,lang : currentlang },
             success: function (data) {
                 $('.testcenter .transformer').remove();
                 var html = '';
                 $.each(data.projects, function (index, item) {
                     // Dynamic create project blocks
                     html +=
-                        '<div class="transformer" style="font-size:16px;width:350px;vertical-align:top;margin:20px;overflow:hidden;transition:height 1s;padding:0;display:inline-block">' +
+                        '<div class="transformer" style="font-size:16px;width:370px;vertical-align:top;margin:20px;overflow:hidden;transition:height 1s;padding:0;display:inline-block">' +
                         '<div class="to">' +
                         ' <div class="from" style="position:relative;display:inline-block">' +
                         ' <div style="position:relative">' +
-                        '<img style="width:350px;height:200px;" src="' + item.Image + '" />'
+                        '<img style="width:370px;height:200px;" src="' + item.Image + '" />'
                     if (item.Status != 0) {
                         html += '<img class="checksign" src="/Resources/Images/DuAn/complete-icon.png" title="Đã Hoàn Thành" />'
                     }
@@ -79,7 +80,7 @@
                     }
                     html += '<li class="page-item"><a class="page-link PreNext" href="">Next</a></li>'
                     $(".pagination").append(html);
-                    $(".number").click(function () {
+                    $(".number").click(function (event) {
                         event.preventDefault();
                         if (!$(this).parent().hasClass("active")) {
                             LoadData($(this).html(), false);
@@ -90,7 +91,7 @@
 
                     // Adding pager data to <ul> tag & adding event handler to every <li> element
                     $(".pagination").data("pageNumber", 1).data("pageCount", data.pageCount);
-                    $(".PreNext").click(function () {
+                    $(".PreNext").click(function (event) {
                         event.preventDefault();
                         var pageNumber = $(".pagination").data("pageNumber");
                         var pageCount = $(".pagination").data("pageCount");
@@ -112,8 +113,7 @@
                 $(window).off('resize');
                 (function (d) {
                     $(window).on("resize", function () {
-                        centerProjects(d);
-                        console.log(d);
+                        centerProjects(d);                        
                     });
                 })(d);
                 //trigger event

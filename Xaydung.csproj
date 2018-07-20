@@ -209,6 +209,7 @@
     <Content Include="Resources\CSS\Home\FixStyle.css" />
     <Content Include="Resources\CSS\Home\Carousel.css" />
     <Content Include="Resources\CSS\Home\Detail_Slider_Style.css" />
+    <Content Include="Resources\CSS\Home\Tintuc.css" />
     <Content Include="Resources\Icons\css\fa-brands.css" />
     <Content Include="Resources\Icons\css\fa-brands.min.css" />
     <Content Include="Resources\Icons\css\fa-regular.css" />
@@ -259,6 +260,10 @@
     <Content Include="Resources\Images\logo\eversoft.png" />
     <Content Include="Resources\Images\logo\ide evironment.png" />
     <Content Include="Resources\Images\logo\Logo-Salmson-Copie.jpg" />
+    <Content Include="Resources\Images\Tintuc\1.JPG" />
+    <Content Include="Resources\Images\Tintuc\2.jpg" />
+    <Content Include="Resources\Images\Tintuc\3.jpg" />
+    <Content Include="Resources\Images\Tintuc\4.jpg" />
     <Content Include="Resources\Images\vi.png" />
     <Content Include="Resources\JS\Index\AddJS.js" />
     <Content Include="Resources\JS\Index\bootstrap-3.1.1.min.js" />
